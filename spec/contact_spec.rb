@@ -2,6 +2,9 @@ require('rspec')
 require('contact')
 
 describe('Contact') do
+  before() do
+    Contact.clear()
+  end
   describe('#initialize') do
 
     it('instantiates a contact object') do
@@ -36,5 +39,20 @@ describe('Contact') do
     end
   end
 
+  describe('add_email') do
+    it("saves the email to the contact's email list") do
+      contact = Contact.new({:id => 1})
+      contact.save()
+      contact.add_email('bugs@bunny.com')
+      expect(contact.email).to eq(['bugs@bunny.com'])
+    end
 
+    it("appends the email to the contact's email list") do
+      contact = Contact.new({:id => 1})
+      contact.save()
+      contact.add_email('bugs@bunny.com')
+      contact.add_email('bugs.bunny@gmail.com')
+      expect(contact.email).to eq(['bugs@bunny.com', 'bugs.bunny@gmail.com'])
+    end
+  end
 end
