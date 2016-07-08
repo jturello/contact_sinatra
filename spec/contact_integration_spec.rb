@@ -9,7 +9,7 @@ describe('route path / index page', {:type => :feature}) do
     expect(page).to have_content('Contact List')
   end
 
-  it('displays the list of all contacts on the index page') do
+  it('displays a contact on the index/Contact List page once contact is added') do
     visit('/')
     fill_in('first_name', :with => 'Jane')
     fill_in('last_name', :with => 'Doe')
