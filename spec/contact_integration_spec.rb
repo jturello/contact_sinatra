@@ -8,5 +8,14 @@ describe('route path / index page', {:type => :feature}) do
     visit('/')
     expect(page).to have_content('Contact List')
   end
-  
+
+  it('displays the list of all contacts on the index page') do
+    visit('/')
+    fill_in('first_name', :with => 'Jane')
+    fill_in('last_name', :with => 'Doe')
+    # fill_in('job_title', :with => 'teacher')
+    # fill_in('company', :with => 'Epicodus')
+    click_button('Add')
+    expect(page).to have_content('Jane Doe')
+  end
 end

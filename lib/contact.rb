@@ -25,6 +25,10 @@ class Contact
     @email.push(email)
   end
 
+  define_singleton_method(:all) do
+    @@contacts
+  end
+
 
 
 

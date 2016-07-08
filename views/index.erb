@@ -1,2 +1,26 @@
 <h1>Contact List</h1>
+
+<form class="contact_input" action="/contacts" method="post">
+  <div class="form_control">
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" value="">
+
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" value="">
+  </div>
+</form>
+
+<button type="button" name="add_contact">Add</button>
+
+<hr>
+
+<section>
+  <% if @contacts_all.length() > 0  %>
+    <% @contacts_all.each() do |contact| %>
+    <ul>
+      <li>contact.first_name contact.last_name</li>
+    </ul>
+    <% end %>
+    <% end %>
+</section>
 <!-- <a href="'/vehicle/new'"></a> -->
