@@ -2,7 +2,7 @@ require('rspec')
 require('contact')
 
 describe('Contact') do
-  before() do
+  before(:each) do
     Contact.clear()
   end
   describe('#initialize') do
